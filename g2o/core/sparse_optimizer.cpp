@@ -354,7 +354,7 @@ namespace g2o{
     }
     if (verbose()) {
       computeActiveErrors();
-      cerr << "iteration= -1\t chi2= " << activeChi2()
+      cout << "iteration= -1\t chi2= " << activeChi2()
           << "\t time= 0.0"
           << "\t cumTime= 0.0"
           << "\t (using initial guess from " << costFunction.name() << ")" << endl;
@@ -411,13 +411,13 @@ namespace g2o{
         cumTime += dts;
         if (! errorComputed)
           computeActiveErrors();
-        cerr << "iteration= " << i
+        cout << "iteration= " << i
           << "\t chi2= " << FIXED(activeRobustChi2())
           << "\t time= " << dts
           << "\t cumTime= " << cumTime
           << "\t edges= " << _activeEdges.size();
-        _algorithm->printVerbose(cerr);
-        cerr << endl;
+        _algorithm->printVerbose(cout);
+        cout << endl;
       }
       ++cjIterations; 
       postIteration(i);
